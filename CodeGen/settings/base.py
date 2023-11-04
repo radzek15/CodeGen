@@ -20,7 +20,11 @@ DJANGO_APPS = [
     'django.contrib.sites',
 ]
 
-INSTALLED_APPS = DJANGO_APPS
+LOCAL_APPS = [
+    'core_apps.users',
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -95,6 +99,8 @@ USE_TZ = True
 SITE_ID = 1
 
 ADMIN_URL = 'admin/'
+
+AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 
