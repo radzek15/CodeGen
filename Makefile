@@ -11,20 +11,20 @@ down:
 logs:
 	docker-compose logs
 
-logs-app:
-	docker-compose logs app
+logs-api:
+	docker-compose logs api
 
 makemigrations:
-	docker-compose run --rm app python manage.py makemigrations
+	docker-compose run --rm api python manage.py makemigrations
 
 migrate:
-	docker-compose run --rm app python manage.py migrate
+	docker-compose run --rm api python manage.py migrate
 
 collectstatic:
-	docker-compose run --rm app python manage.py collectstatic --no-input --clear
+	docker-compose run --rm api python manage.py collectstatic --no-input --clear
 
 superuser:
-	docker-compose run --rm app python manage.py createsuperuser
+	docker-compose run --rm api python manage.py createsuperuser
 
 down-v:
 	docker-compose down -v
