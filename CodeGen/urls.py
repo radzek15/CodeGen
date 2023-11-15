@@ -6,4 +6,5 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path('api/auth/', include('core_apps.users.urls')),
     path('api/dockerfile/', include('core_apps.dockerfilegen.urls')),
+    path('api/dockercompose/', include('core_apps.dockercomposegen.urls')),
 ]

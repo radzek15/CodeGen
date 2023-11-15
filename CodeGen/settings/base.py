@@ -24,6 +24,8 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'core_apps.users',
     'core_apps.dockerfilegen',
+    'core_apps.dockercomposegen',
+    'core_apps.nginxgen',
 ]
 
 IMPORTED_APPS = [
@@ -37,6 +39,7 @@ IMPORTED_APPS = [
     "dj_rest_auth",
     "dj_rest_auth.registration",
     "corsheaders",
+    "rest_framework_yaml",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + IMPORTED_APPS
@@ -143,6 +146,10 @@ REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework_yaml.renderers.YAMLRenderer",
+    ]
 }
 
 SIMPLE_JWT = {

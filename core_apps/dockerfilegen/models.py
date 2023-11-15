@@ -8,8 +8,8 @@ class DockerCommand(models.Model):
     variable = models.TextField(verbose_name=_lazy('command variable'), blank=True)
 
     class Meta:
-        verbose_name = "Command"
-        verbose_name_plural = "Commands"
+        verbose_name = "Docker Command"
+        verbose_name_plural = "Docker Commands"
         ordering = ['instruction']
         unique_together = ['instruction', 'argument', 'variable']
 

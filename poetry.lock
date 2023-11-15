@@ -505,6 +505,25 @@ python-jose = ["python-jose (==3.3.0)"]
 test = ["cryptography", "pytest", "pytest-cov", "pytest-django", "pytest-xdist", "tox"]
 
 [[package]]
+name = "djangorestframework-yaml"
+version = "2.0.0"
+description = "YAML support for Django REST Framework"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "djangorestframework-yaml-2.0.0.tar.gz", hash = "sha256:1b2cfd7482425f3c6924a8eb803d6f73276e76b03293cd7144c755753e029f15"},
+    {file = "djangorestframework_yaml-2.0.0-py2.py3-none-any.whl", hash = "sha256:7fe744e6004d2191fa1cb8a4fc62f98150202bfebd60702a04f8187cc240b7c4"},
+]
+
+[package.dependencies]
+PyYAML = ">=3.10"
+
+[package.extras]
+dev = ["Django (>=1.6)", "djangorestframework (>=2.4.3)", "flake8", "mkdocs (>=0.11.1)", "pre-commit", "pytest", "pytest-django", "tox"]
+docs = ["mkdocs (>=0.11.1)"]
+tests = ["Django (>=1.6)", "djangorestframework (>=2.4.3)", "flake8", "pytest", "pytest-django"]
+
+[[package]]
 name = "djlint"
 version = "1.34.0"
 description = "HTML Template Linter and Formatter"
@@ -1219,4 +1238,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "723c87f06b834b59f59c80a325215918ec63e2d9dfbfcf8098afe61b411b686a"
+content-hash = "2faf813ee2f63e74776a7f13b508ee86bdb424c5f3bdc7e70502d8a2907239a5"
