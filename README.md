@@ -14,6 +14,7 @@
   * nginx.conf
     * Store data (configurations for nginx) in a database
     * Load data on-demand as per user's preference in a file generator - needs frontend(React)
+  * Login by gmail/facebook/github etc.
 
 ## Tech Stack
    * Python3
