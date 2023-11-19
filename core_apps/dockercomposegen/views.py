@@ -1,8 +1,8 @@
 from rest_framework import generics
-from rest_framework_yaml.renderers import YAMLRenderer
+
+from core_apps.dockerfilegen.permissions import IsSuperUserOrReadOnly
 
 from .models import DockerComposeInstruction
-from .permissions import IsSuperUserOrReadOnly
 from .renderers import CustomYAMLRenderer
 from .serializers import DockerComposeInstructionSerializer
 
