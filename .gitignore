@@ -4,7 +4,6 @@
 staticfiles
 mediafiles
 .DS_Store
-testingsimple.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -192,3 +191,19 @@ cython_debug/
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+
+# REACT
+# dependencies
+client/node_modules
+client/.pnp
+client/.pnp.js
+
+# testing
+client/coverage
+
+# production
+client/build
+
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*

@@ -28,6 +28,8 @@ djangorestframework-yaml = "^2.0.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pre-commit]
+
 [tool.ruff]
 line-length = 120
 ignore = [
