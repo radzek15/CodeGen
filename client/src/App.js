@@ -1,19 +1,11 @@
+import React from "react";
+import TestComponent from "./components/testComponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          blablabla
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TestComponent />
       </header>
     </div>
   );

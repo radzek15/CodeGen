@@ -16,6 +16,7 @@ class NginxInstructionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAP
     queryset = NginxInstruction.objects.all()
     serializer_class = NginxInstructionSerializer
     permission_classes = [IsSuperUserOrReadOnly]
+    lookup_field = 'id'
 
 
 class NginxConfigurationListCreateView(generics.ListCreateAPIView):
@@ -28,3 +29,4 @@ class NginxConfigurationRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroy
     queryset = NginxConfiguration.objects.all()
     serializer_class = NginxConfigurationSerializer
     permission_classes = [IsSuperUserOrReadOnly]
+    lookup_field = 'id'
