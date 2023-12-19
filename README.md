@@ -5,25 +5,22 @@
 
 ## Current Features I plan to implement:
   * User verification - email not sending (needs setup)
-  * Dockerfiles:
-    * Store data (such as Dockerfile commands) in a database &#x2611;
-    * Load data on-demand as per user's preference in a file generator - needs frontend(React)
-  * docker-compose.yml:
-    * Store data (such as Docker-compose instructions) in a database &#x2611;
-    * Load data on-demand as per user's preference in a file generator - needs frontend(React)
-  * nginx.conf
-    * Store data (configurations for nginx) in a database &#x2611;
-    * Load data on-demand as per user's preference in a file generator - needs frontend(React)
-  * Login by gmail/facebook/github etc.
+  * Generating files:
+    * Store data in a pg database &#x2611;
+    * Load data on-demand as per user's preference in a file generator(connect to backend + data loading done)
+  * Login by Gmail/Facebook/GitHub etc.
+  * Complete database with data
 
 ## Future Features I plan to implement:
-  * Github Workflow files generation - yaml
+  * GitHub Workflow files generation - yaml
   * kubernetes files generation - yaml
 
 ## Tech Stack
    * Python3
    * Django
    * Django REST Framework
+   * Javascript
+   * React
    * Docker
    * PostgreSQL
    * Bash

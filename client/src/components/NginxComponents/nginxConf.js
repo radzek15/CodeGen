@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 
-export default function TestComponent() {
+export default function NginxConf() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api/nginx/conf/")
+		fetch("http://127.0.0.1:8080/api/nginx/conf/")
 			.then(response => response.json())
 			.then(data => setData(data))
 			.catch(error => console.error('Error fetching data:', error));
@@ -12,10 +12,9 @@ export default function TestComponent() {
 
 	return (
 		<div>
-      <h1>Data from Django API:</h1>
       <ul>
         {data.map(item => (
-          <li key={item.id}>{item.name}</li>
+          <li key={item.id}>{item.name}: {item.value}</li>
         ))}
       </ul>
     </div>

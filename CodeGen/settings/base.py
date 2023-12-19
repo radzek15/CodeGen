@@ -120,7 +120,7 @@ SITE_ID = 1
 
 ADMIN_URL = 'admin/'
 
-CORS_URLS_REGEX = r"^api/.*$"
+CORS_URLS_REGEX = r"^/.*$"
 
 AUTH_USER_MODEL = 'users.User'
 
