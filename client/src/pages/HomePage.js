@@ -1,14 +1,20 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
 import NavBar from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
 
 export default function HomePage() {
-	return (
-		<div>
-			<NavBar />
-		</div>
-	)
+  return (
+    <div style={{display: "flex", flexDirection: "column", minHeight: "100vh"}}>
+      <NavBar />
+      <div style={{flex: "1"}}>
+        <h1
+          className={"fw-bold text-center mt-3 text-primary"}
+          style={{ fontFamily: "'Dancing Script', cursive", fontSize: "5rem" }}
+        >
+          CodeGen
+        </h1>
+      </div>
+      <Footer style={{flexShrink: "0"}} />
+    </div>
+  );
 }

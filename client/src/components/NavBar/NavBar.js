@@ -1,31 +1,64 @@
-import React, { useState } from "react";
-import './NavBar.css';
-import {MDBNavbar, MDBContainer, MDBNavbarToggler, MDBIcon, MDBCollapse, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink} from 'mdb-react-ui-kit';
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarToggler,
+  MDBIcon,
+  MDBNavbarNav,
+  MDBNavbarItem,
+  MDBNavbarLink,
+  MDBBtn,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBCollapse,
+} from 'mdb-react-ui-kit';
 
-const NavBar = () => {
-		const [showNavCentred, setShowNavCentred] = useState(false);
-		return (
-			<MDBNavbar expand='lg' className={ 'navbar navbar-expand-md navbar-light bg-light p-4' }>
-				<MDBContainer fluid>
-					<MDBNavbarToggler type='button' data-target='#navbarNav' aria-controls='navbarCenteredExample' aria-expanded='false' aria-label='Toggle navigation' onClick={() => setShowNavCentred(!showNavCentred)}>
-						<MDBIcon icon='bars' fas />
-					</MDBNavbarToggler>
-					<MDBCollapse navbar show={showNavCentred} center id={ 'navbarNav' }>
-						<MDBNavbarNav fullWidth={ false } className={ 'navbar-nav nav-fill w-100' }>
-							<MDBNavbarItem>
-								<MDBNavbarLink active aria-current='page' href='/' className={ 'nav-link text-success' }>Home Page</MDBNavbarLink>
-							</MDBNavbarItem>
-							<MDBNavbarItem>
-								<MDBNavbarLink active aria-current='page' href='/nginx' className={ 'nav-link text-success' }>Nginx Generator</MDBNavbarLink>
-							</MDBNavbarItem>
-							<MDBNavbarItem>
-								<MDBNavbarLink active aria-current='page' href='/docker' className={ 'nav-link text-success' }>Docker Generator</MDBNavbarLink>
-							</MDBNavbarItem>
-						</MDBNavbarNav>
-					</MDBCollapse>
-				</MDBContainer>
-			</MDBNavbar>
-		);
+export default function App() {
+  const [openBasic, setOpenBasic] = useState(false);
+
+  return (
+    <MDBNavbar expand='lg' light bgColor='light'>
+      <MDBContainer fluid>
+        <MDBNavbarBrand href='#'>CodeGen</MDBNavbarBrand>
+
+        <MDBNavbarToggler
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+          onClick={() => setOpenBasic(!openBasic)}
+        >
+          <MDBIcon icon='bars' fas />
+        </MDBNavbarToggler>
+
+        <MDBCollapse navbar open={openBasic}>
+          <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/'>
+                Home
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink active aria-current='page' href='/login'>Sign In</MDBNavbarLink>
+            </MDBNavbarItem>
+
+            <MDBNavbarItem>
+              <MDBDropdown dropright>
+                <MDBDropdownToggle active aria-current='page' tag='a' className='nav-link' role='button'>
+                  Services
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  <MDBDropdownItem link href={'/docker'}>Dockerfile</MDBDropdownItem>
+                  <MDBDropdownItem link href={'docker-compose'}>docker-compose.yaml</MDBDropdownItem>
+                  <MDBDropdownItem link href={'nginx'}>nginx.conf</MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavbarItem>
+          </MDBNavbarNav>
+        </MDBCollapse>
+      </MDBContainer>
+    </MDBNavbar>
+  );
 }
-
-export default NavBar
