@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Docker/local/python/Dockerfile
+    volumes:
+      - .:/app:z
+      - static_volume:/api/staticfiles
+      - media_volume:/api/mediafiles
+    expose:
+      - "8000"
+    env_file:
+      - ./.envs/.local/.postgres
+      - ./.envs/.local/.django
+    depends_on:
+      - postgres
+    command: /start.sh
+    networks:
+      - code_gen
+
+  postgres:
+    image: "postgres:15-bullseye"
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/.local/.postgres
+    networks:
+      - code_gen
+
+  nginx:
+    restart: always
+    depends_on:
+      - api
+    build:
+      context: ./Docker/local/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - static_volume:/api/staticfiles
+      - media_volume:/api/mediafiles
+    ports:
+      - "8080:80"
+    networks:
+      - code_gen
+
+volumes:
+  local_postgres_data: {}
+  static_volume:
+  media_volume:
+
+networks:
+  code_gen:
+    driver: bridge
