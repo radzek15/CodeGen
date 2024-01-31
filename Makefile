@@ -1,4 +1,4 @@
-#docker-compose
+#docker
 build:
 	docker-compose up  --build --remove-orphans
 
@@ -57,6 +57,3 @@ pre-commit:
 
 diff:
 	pre-commit run --all-files --no-apply --diff
-
-serve:
-	cd client/ && npm run serve
