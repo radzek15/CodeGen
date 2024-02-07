@@ -6,10 +6,13 @@
 <!--          <option v-for="i in nginxInstruction" :key="i.id">{{ i.instruction }}</option>-->
 <!--          <option v-for="conf in nginxConfiguration" :key="conf.id">{{ conf.name }}</option>-->
 <!--        </select>-->
-
-        <select class="form-select my-3" multiple aria-label="select-docker-command">
-          <option v-for="i in nginxInstruction" :key="i.id" @dblclick="appendToTextArea(`${i.instruction} ${i.argument} {\n\t\n}`)">{{ i.instruction }} {{ i.argument }}</option>
-          <option v-for="conf in nginxConfiguration" :key="conf.id" @dblclick="appendToTextArea(`${conf.name} ${conf.value}\n`)">{{ conf.name }} {{ conf.value }}</option>
+        <h3>Blocks</h3>
+        <select class="form-select my-3" multiple aria-label="select-nginx-instruction">
+          <option v-for="block in nginxBlocks" :key="block.id" @dblclick="appendToTextArea(`${block.instruction} ${block.argument} {\n\t\n}`)">{{ block.instruction }} {{ block.argument }}</option>
+        </select>
+        <h3>Directives</h3>
+        <select class="form-select my-3" multiple aria-label="select-docker-configuration">
+          <option v-for="directive in nginxDirectives" :key="directive.id" @dblclick="appendToTextArea(`${directive.name} ${directive.value}:\n`)">{{ directive.name }} {{ directive.value }}</option>
         </select>
       </div>
 
@@ -29,24 +32,24 @@
     name: 'NginxGen',
     data() {
       return {
-        nginxInstruction: {},
-        nginxConfiguration: {},
+        nginxBlocks: {},
+        nginxDirectives: {},
         selectedField: 'Select'
       }
     },
     methods: {
-      async fetchNginxInstruction() {
+      async fetchNginxBlocks() {
         try {
           const response = await axios.get('http://localhost:8080/api/nginx/instruction/');
-          this.nginxInstruction = response.data;
+          this.nginxBlocks = response.data;
         } catch (error) {
           console.log('Error fetching data:', error);
         }
       },
-      async fetchNginxConfiguration(){
+      async fetchNginxDirectives(){
         try {
           const response = await axios.get('http://localhost:8080/api/nginx/conf/');
-          this.nginxConfiguration = response.data;
+          this.nginxDirectives = response.data;
         } catch (error) {
           console.log('Error fetching data:', error);
         }
@@ -62,8 +65,8 @@
       }
     },
     async mounted() {
-      await this.fetchNginxInstruction();
-      await this.fetchNginxConfiguration();
+      await this.fetchNginxBlocks();
+      await this.fetchNginxDirectives();
     }
   }
 </script>
